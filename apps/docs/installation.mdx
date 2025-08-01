@@ -1,0 +1,58 @@
+---
+title: "Installation"
+description: "Learn how to install and set up Osmium components in your project using the shadcn/ui CLI."
+---
+
+Osmium follows the [shadcn/ui specification](https://ui.shadcn.com/docs/registry), making it easy to integrate with existing projects. Before installing Osmium components, ensure your project is properly configured with [shadcn/ui](https://ui.shadcn.com/docs).
+
+## Prerequisites
+
+Make sure your project has been set up correctly with shadcn/ui configuration. If you haven't done this yet, follow the [shadcn/ui installation guide](https://ui.shadcn.com/docs/installation) to get started.
+
+Your project should have:
+
+- A `components.json` file in your project root
+- shadcn/ui dependencies installed
+- Proper TypeScript and Tailwind CSS configuration
+
+## Install Osmium Components
+
+Once your project is configured with shadcn/ui, you can install Osmium components using the shadcn CLI:
+
+```bash
+pnpm dlx shadcn@latest add https://registry.intface.io/chat.json
+```
+
+This will download and install the Chat component along with all its dependencies into your `components` directory.
+
+## Import and Use Components
+
+After installation, you can import and use Osmium components in your application:
+
+```tsx
+import Chat from "@/components/chat";
+
+export default function App() {
+  return (
+    <div className="h-screen">
+      <Chat
+        status={status}
+        messages={chatMessages}
+        onSend={handleSend}
+        onStop={handleStop}
+      />
+    </div>
+  );
+}
+```
+
+## What Gets Installed
+
+When you install the Chat component, Osmium will add:
+
+- **Chat component**: The main chat interface
+- **Message List**: Displays conversation history
+- **Message Input**: Handles user input and submission
+- **Required dependencies**: All necessary utilities and types
+
+All components are installed as source code in your project, giving you full control to customize and extend them as needed.
