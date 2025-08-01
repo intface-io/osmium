@@ -1,0 +1,91 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "Osmium",
+  "homepage": "",
+  "items": [
+    {
+      "name": "chat",
+      "type": "registry:block",
+      "title": "Chat",
+      "description": "A chat component composed of a message list and a message input",
+      "files": [
+        {
+          "path": "components/chat/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/chat/message-list.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/chat/message-input.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/chat/message-item.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/a.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/code.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/h1.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/h2.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/h3.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/h4.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/h5.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/h6.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/hr.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/li.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/ol.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/p.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/strong.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/markdown/ul.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}
