@@ -1,0 +1,69 @@
+---
+title: "Message Item"
+description: "An individual message component with role-based styling, markdown rendering, and copy functionality for chat interfaces."
+---
+
+The MessageItem component renders individual messages in a chat interface. It provides role-based styling (user vs assistant), markdown content rendering, and interactive copy functionality with smooth hover states.
+
+## Installation
+
+Install the MessageItem component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/message-item.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/message-item.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/message-item.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/message-item.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { MessageItem } from "@/components/chat/message-item";
+
+export default function Chat() {
+  const message = {
+    id: "1",
+    role: "assistant",
+    parts: [
+      {
+        type: "text",
+        text: "Hello! How can I help you today?"
+      }
+    ]
+  };
+
+  return (
+    <MessageItem 
+      message={message}
+      className="mb-4"
+    />
+  );
+}
+```
+
+## Props
+
+<ParamField body="message" type="UIMessage" required>
+  The message object to display. Uses the standard UI message format from AI SDK with parts array.
+</ParamField>
+
+<ParamField body="className" type="string">
+  Additional CSS classes to apply to the message container.
+</ParamField>
+
+<ParamField body="style" type="React.CSSProperties">
+  Inline styles to apply to the message container.
+</ParamField>
+
+<ParamField body="ref" type="React.Ref<HTMLDivElement>">
+  Reference to the message container element.
+</ParamField>

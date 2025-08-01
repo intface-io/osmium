@@ -1,0 +1,47 @@
+---
+title: "Paragraph"
+description: "A styled paragraph component for markdown rendering with proper spacing and typography."
+---
+
+The P component renders paragraphs in markdown content with optimized spacing and typography for chat interfaces.
+
+## Installation
+
+Install the P component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/markdown-p.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/markdown-p.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/markdown-p.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/markdown-p.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import P from "@/components/markdown/p";
+
+export default function Example() {
+  return (
+    <P>This is a paragraph with proper spacing and typography.</P>
+  );
+}
+```
+
+## Props
+
+<ParamField body="children" type="React.ReactNode" required>
+  The paragraph content to display.
+</ParamField>
+
+<ParamField body="...props" type="React.HTMLAttributes<HTMLParagraphElement>">
+  Standard HTML paragraph attributes.
+</ParamField>

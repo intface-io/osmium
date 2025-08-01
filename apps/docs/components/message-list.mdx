@@ -1,0 +1,102 @@
+---
+title: "Message List"
+description: "A scrollable container for displaying chat messages with auto-scroll management, loading indicators, and smooth UX optimizations."
+---
+
+The MessageList component handles the display and scroll behavior of chat messages. It provides intelligent auto-scroll management, loading states, and UX features like a "scroll to bottom" button when users scroll up.
+
+## Installation
+
+Install the MessageList component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/message-list.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/message-list.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/message-list.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/message-list.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { MessageList } from "@/components/chat/message-list";
+import { useRef, useState } from "react";
+
+export default function Chat() {
+  const [messages, setMessages] = useState([]);
+  const [status, setStatus] = useState("idle");
+  const messageListRef = useRef(null);
+  const lastUserMessageRef = useRef(null);
+  const lastAssistantMessageRef = useRef(null);
+  const bottomSentinelRef = useRef(null);
+  const [isAtBottom, setIsAtBottom] = useState(true);
+
+  const scrollToBottom = () => {
+    bottomSentinelRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <MessageList
+      messages={messages}
+      status={status}
+      ref={messageListRef}
+      lastUserMessageRef={lastUserMessageRef}
+      lastAssistantMessageRef={lastAssistantMessageRef}
+      bottomSentinelRef={bottomSentinelRef}
+      scrollToBottom={scrollToBottom}
+      isAtBottom={isAtBottom}
+      chatContainerHeight={800}
+    />
+  );
+}
+```
+
+## Props
+
+<ParamField body="messages" type="UIMessage[]" required>
+  Array of chat messages to display. Uses the standard UI message format from AI SDK.
+</ParamField>
+
+<ParamField body="status" type="ChatStatus" required>
+  The current chat status. Controls loading indicators and UI states.
+</ParamField>
+
+<ParamField body="ref" type="React.RefObject<HTMLDivElement>" required>
+  Reference to the main scrollable container element.
+</ParamField>
+
+<ParamField body="lastUserMessageRef" type="React.RefObject<HTMLDivElement>" required>
+  Reference to the last user message element for scroll positioning.
+</ParamField>
+
+<ParamField body="lastAssistantMessageRef" type="React.RefObject<HTMLDivElement>" required>
+  Reference to the last assistant message element for scroll positioning.
+</ParamField>
+
+<ParamField body="bottomSentinelRef" type="React.RefObject<HTMLDivElement>" required>
+  Reference to the bottom sentinel element used for scroll detection.
+</ParamField>
+
+<ParamField body="scrollToBottom" type="() => void" required>
+  Function to scroll the list to the bottom.
+</ParamField>
+
+<ParamField body="isAtBottom" type="boolean" required>
+  Whether the user is currently scrolled to the bottom of the list.
+</ParamField>
+
+<ParamField body="chatContainerHeight" type="number">
+  Height of the chat container in pixels. Used for dynamic spacing calculations.
+</ParamField>
+
+<ParamField body="lastMessageRole" type="'user' | 'assistant'">
+  The role of the last message in the list. Affects spacing calculations.
+</ParamField>

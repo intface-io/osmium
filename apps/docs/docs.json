@@ -13,6 +13,31 @@
       {
         "group": "Getting started",
         "pages": ["index", "installation"]
+      },
+      {
+        "group": "Components",
+        "pages": [
+          "components/chat",
+          "components/message-list",
+          "components/message-item",
+          "components/message-input",
+          "components/message-text",
+          "components/thinking-block"
+        ]
+      },
+      {
+        "group": "Markdown",
+        "pages": [
+          "markdown/headings",
+          "markdown/p",
+          "markdown/strong",
+          "markdown/code",
+          "markdown/a",
+          "markdown/ul",
+          "markdown/ol",
+          "markdown/li",
+          "markdown/hr"
+        ]
       }
     ]
   },

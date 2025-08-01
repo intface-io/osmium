@@ -1,0 +1,81 @@
+---
+title: "Headings"
+description: "Styled heading components (H1-H6) for markdown rendering with consistent typography and spacing."
+---
+
+The Heading components render all six levels of headings in markdown content with optimized typography and consistent spacing for chat interfaces.
+
+## Installation
+
+Install the Heading components using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/markdown-headings.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/markdown-headings.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/markdown-headings.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/markdown-headings.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import H1 from "@/components/markdown/h1";
+import H2 from "@/components/markdown/h2";
+import H3 from "@/components/markdown/h3";
+import H4 from "@/components/markdown/h4";
+import H5 from "@/components/markdown/h5";
+import H6 from "@/components/markdown/h6";
+
+export default function Example() {
+  return (
+    <div>
+      <H1>Main Title</H1>
+      <H2>Section Heading</H2>
+      <H3>Subsection Heading</H3>
+      <H4>Level 4 Heading</H4>
+      <H5>Level 5 Heading</H5>
+      <H6>Level 6 Heading</H6>
+    </div>
+  );
+}
+```
+
+## Components
+
+### H1
+Large primary headings with bold styling.
+
+### H2
+Secondary headings for main sections.
+
+### H3
+Tertiary headings for subsections.
+
+### H4
+Level 4 headings for detailed organization.
+
+### H5
+Level 5 headings for fine-grained structure.
+
+### H6
+Smallest headings for minimal emphasis.
+
+## Props
+
+All heading components share the same props:
+
+<ParamField body="children" type="React.ReactNode" required>
+  The heading content to display.
+</ParamField>
+
+<ParamField body="...props" type="React.HTMLAttributes<HTMLHeadingElement>">
+  Standard HTML heading attributes.
+</ParamField>

@@ -1,0 +1,49 @@
+---
+title: "Strong"
+description: "A styled strong/bold text component for markdown rendering with proper emphasis styling."
+---
+
+The Strong component renders bold text in markdown content with consistent emphasis styling for chat interfaces.
+
+## Installation
+
+Install the Strong component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/markdown-strong.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/markdown-strong.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/markdown-strong.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/markdown-strong.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import Strong from "@/components/markdown/strong";
+
+export default function Example() {
+  return (
+    <p>
+      This text contains <Strong>important bold content</Strong> for emphasis.
+    </p>
+  );
+}
+```
+
+## Props
+
+<ParamField body="children" type="React.ReactNode" required>
+  The content to display with strong emphasis.
+</ParamField>
+
+<ParamField body="...props" type="React.HTMLAttributes<HTMLElement>">
+  Standard HTML strong element attributes.
+</ParamField>

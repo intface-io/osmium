@@ -1,0 +1,47 @@
+---
+title: "Horizontal Rule"
+description: "A styled horizontal rule component for markdown rendering with clean separation styling."
+---
+
+The HR component renders horizontal rules in markdown content with clean styling for section separation in chat interfaces.
+
+## Installation
+
+Install the HR component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/markdown-hr.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/markdown-hr.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/markdown-hr.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/markdown-hr.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import HR from "@/components/markdown/hr";
+
+export default function Example() {
+  return (
+    <div>
+      <p>Content above the separator</p>
+      <HR />
+      <p>Content below the separator</p>
+    </div>
+  );
+}
+```
+
+## Props
+
+<ParamField body="...props" type="React.HTMLAttributes<HTMLHRElement>">
+  Standard HTML horizontal rule attributes.
+</ParamField>

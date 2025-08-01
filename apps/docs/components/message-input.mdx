@@ -1,0 +1,73 @@
+---
+title: "Message Input"
+description: "A responsive message input component with auto-resize, send/stop functionality, and keyboard shortcuts for chat interfaces."
+---
+
+The MessageInput component provides a user-friendly input interface for chat applications. It features auto-resizing textarea, Enter to send functionality, and dynamic send/stop button states based on chat status.
+
+## Installation
+
+Install the MessageInput component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/message-input.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/message-input.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/message-input.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/message-input.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { MessageInput } from "@/components/chat/message-input";
+import { useState } from "react";
+
+export default function Chat() {
+  const [status, setStatus] = useState("idle");
+
+  const handleSend = (message: string) => {
+    console.log("Sending message:", message);
+    setStatus("streaming");
+  };
+
+  const handleStop = () => {
+    console.log("Stopping generation");
+    setStatus("idle");
+  };
+
+  return (
+    <MessageInput
+      status={status}
+      onSendMessage={handleSend}
+      onStop={handleStop}
+      className="max-w-2xl"
+    />
+  );
+}
+```
+
+## Props
+
+<ParamField body="status" type="ChatStatus" required>
+  The current chat status. Controls the input state and button appearance (send vs stop).
+</ParamField>
+
+<ParamField body="onSendMessage" type="(content: string) => void">
+  Callback function called when the user sends a message. Receives the trimmed message content.
+</ParamField>
+
+<ParamField body="onStop" type="() => void" required>
+  Callback function called when the user wants to stop AI response generation.
+</ParamField>
+
+<ParamField body="className" type="string">
+  Additional CSS classes to apply to the input container.
+</ParamField>

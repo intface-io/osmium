@@ -1,0 +1,52 @@
+---
+title: "Ordered List"
+description: "A styled ordered list component for markdown rendering with proper numbering and spacing."
+---
+
+The OL component renders ordered lists in markdown content with consistent numbering and spacing for chat interfaces.
+
+## Installation
+
+Install the OL component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/markdown-ol.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/markdown-ol.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/markdown-ol.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/markdown-ol.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import OL from "@/components/markdown/ol";
+import LI from "@/components/markdown/li";
+
+export default function Example() {
+  return (
+    <OL>
+      <LI>First step</LI>
+      <LI>Second step</LI>
+      <LI>Third step</LI>
+    </OL>
+  );
+}
+```
+
+## Props
+
+<ParamField body="children" type="React.ReactNode" required>
+  The list items to display.
+</ParamField>
+
+<ParamField body="...props" type="React.HTMLAttributes<HTMLOListElement>">
+  Standard HTML ordered list attributes.
+</ParamField>

@@ -1,0 +1,49 @@
+---
+title: "List Item"
+description: "A styled list item component for markdown rendering with proper spacing and typography."
+---
+
+The LI component renders list items in markdown content with consistent styling and spacing for both ordered and unordered lists.
+
+## Installation
+
+Install the LI component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/markdown-li.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/markdown-li.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/markdown-li.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/markdown-li.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import LI from "@/components/markdown/li";
+
+export default function Example() {
+  return (
+    <ul>
+      <LI>List item content with proper styling</LI>
+    </ul>
+  );
+}
+```
+
+## Props
+
+<ParamField body="children" type="React.ReactNode" required>
+  The list item content to display.
+</ParamField>
+
+<ParamField body="...props" type="React.HTMLAttributes<HTMLLIElement>">
+  Standard HTML list item attributes.
+</ParamField>

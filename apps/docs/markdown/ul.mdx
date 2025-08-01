@@ -1,0 +1,52 @@
+---
+title: "Unordered List"
+description: "A styled unordered list component for markdown rendering with proper spacing and bullet styling."
+---
+
+The UL component renders unordered lists in markdown content with consistent bullet styling and spacing for chat interfaces.
+
+## Installation
+
+Install the UL component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/markdown-ul.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/markdown-ul.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/markdown-ul.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/markdown-ul.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import UL from "@/components/markdown/ul";
+import LI from "@/components/markdown/li";
+
+export default function Example() {
+  return (
+    <UL>
+      <LI>First item</LI>
+      <LI>Second item</LI>
+      <LI>Third item</LI>
+    </UL>
+  );
+}
+```
+
+## Props
+
+<ParamField body="children" type="React.ReactNode" required>
+  The list items to display.
+</ParamField>
+
+<ParamField body="...props" type="React.HTMLAttributes<HTMLUListElement>">
+  Standard HTML unordered list attributes.
+</ParamField>

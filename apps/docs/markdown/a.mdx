@@ -1,0 +1,53 @@
+---
+title: "Anchor"
+description: "A styled anchor component for markdown rendering with link icon and accessibility features."
+---
+
+The A component renders links in markdown content with a visual link icon and proper styling for chat interfaces.
+
+## Installation
+
+Install the A component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/markdown-a.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/markdown-a.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/markdown-a.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/markdown-a.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import A from "@/components/markdown/a";
+
+export default function Example() {
+  return (
+    <A href="https://example.com" target="_blank">
+      Visit Example
+    </A>
+  );
+}
+```
+
+## Props
+
+<ParamField body="children" type="React.ReactNode" required>
+  The link text to display.
+</ParamField>
+
+<ParamField body="href" type="string">
+  The URL the link points to.
+</ParamField>
+
+<ParamField body="...props" type="React.HTMLAttributes<HTMLAnchorElement>">
+  Standard HTML anchor attributes.
+</ParamField>

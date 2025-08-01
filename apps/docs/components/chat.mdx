@@ -1,0 +1,78 @@
+---
+title: "Chat"
+description: "A complete chat interface with message list and input, featuring smart auto-scroll management and optimized UX for AI conversations."
+---
+
+The Chat component is the core of Osmium, providing a complete chat interface optimized for AI conversations. It combines a message list and message input with intelligent scroll management and UX features similar to ChatGPT and Grok.
+
+## Installation
+
+Install the Chat component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/chat.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/chat.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/chat.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/chat.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import Chat from "@/components/chat";
+import { useChat } from "ai/react";
+
+export default function App() {
+  const { messages: chatMessages, sendMessage, status, stop } = useChat();
+
+  const handleSend = async (message: string) => {
+    sendMessage({ text: message });
+  };
+
+  const handleStop = () => {
+    stop();
+  };
+
+  return (
+    <div className="h-screen flex flex-col items-center justify-center">
+      <Chat
+        status={status}
+        messages={chatMessages}
+        onSend={handleSend}
+        onStop={handleStop}
+      />
+    </div>
+  );
+}
+```
+
+## Props
+
+<ParamField body="status" type="ChatStatus" required>
+  The current status of the chat. Controls the input state and loading
+  indicators.
+</ParamField>
+
+
+<ParamField body="messages" type="UIMessage[]" required>
+  Array of chat messages to display. Uses the standard UI message format from AI
+  SDK.
+</ParamField>
+
+<ParamField body="onSend" type="(message: string) => void" required>
+  Callback function called when the user sends a message. Receives the message
+  content as a string.
+</ParamField>
+
+<ParamField body="onStop" type="() => void" required>
+  Callback function called when the user wants to stop the AI response
+  generation.
+</ParamField>

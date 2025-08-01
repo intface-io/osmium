@@ -1,0 +1,49 @@
+---
+title: "Code"
+description: "An inline code component for markdown rendering with proper text wrapping and styling."
+---
+
+The Code component renders inline code snippets in markdown content with proper text wrapping and monospace styling.
+
+## Installation
+
+Install the Code component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/markdown-code.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/markdown-code.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/markdown-code.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/markdown-code.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import Code from "@/components/markdown/code";
+
+export default function Example() {
+  return (
+    <p>
+      Use the <Code>useState</Code> hook for state management.
+    </p>
+  );
+}
+```
+
+## Props
+
+<ParamField body="children" type="React.ReactNode" required>
+  The code content to display.
+</ParamField>
+
+<ParamField body="...props" type="React.HTMLAttributes<HTMLElement>">
+  Standard HTML code element attributes.
+</ParamField>

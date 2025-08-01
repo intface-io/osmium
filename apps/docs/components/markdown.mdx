@@ -1,0 +1,60 @@
+---
+title: "Markdown"
+description: "A high-performance markdown renderer with custom components and block-level parsing for chat interfaces."
+---
+
+The Markdown component is a powerful renderer that converts markdown text into React components. It uses block-level parsing for optimal performance and provides custom styling for all markdown elements in chat interfaces.
+
+## Installation
+
+Install the Markdown component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/markdown.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/markdown.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/markdown.json
+  ```
+  ```bash bun 
+  bunx shadcn@latest add https://registry.intface.io/markdown.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import Markdown from "@/components/markdown";
+
+export default function ChatMessage() {
+  const content = `
+# Hello World
+
+This is **bold text** with some \`inline code\`.
+
+- List item 1
+- List item 2
+
+[Link example](https://example.com)
+  `;
+
+  return (
+    <div className="prose">
+      <Markdown content={content} id="message-1" />
+    </div>
+  );
+}
+```
+
+## Props
+
+<ParamField body="content" type="string" required>
+  The markdown content to render.
+</ParamField>
+
+<ParamField body="id" type="string" required>
+  Unique identifier for the markdown content. Used for React keys in block rendering.
+</ParamField>
