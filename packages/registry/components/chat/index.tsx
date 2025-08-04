@@ -5,7 +5,7 @@ import type { UIMessage } from "@ai-sdk/react";
 import type { ChatStatus } from "ai";
 import { useEffect, useRef, useState } from "react";
 
-type ChatProps = {
+export type ChatProps = {
   status: ChatStatus;
   messages: UIMessage[];
   onSend: (message: string) => void;

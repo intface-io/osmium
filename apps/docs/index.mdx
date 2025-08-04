@@ -3,7 +3,7 @@ title: "Introduction"
 description: "Osmium provides everything you need to create polished, production-ready AI chat interfaces."
 ---
 
-Osmium is a comprehensive collection of components based on [shadcn/ui](https://ui.shadcn.com/) designed to help developers quickly implement chat-with-AI experiences in their applications.
+Osmium is a comprehensive collection of components based on [shadcn/ui](https://ui.shadcn.com/) and [AI SDK 5](https://v5.ai-sdk.dev/) designed to help developers quickly implement chat-with-AI experiences in their applications.
 
 It simplifies the development of AI chat applications by providing pre-built, customizable components that handle the complexities of real-time messaging interfaces. Whether you're building a customer support chatbot, an AI assistant, or any conversational AI application, Osmium gives you the building blocks to get started quickly.
 
@@ -11,28 +11,17 @@ It simplifies the development of AI chat applications by providing pre-built, cu
 
 ### Chat Component
 
-The heart of Osmium is the Chat component, which consists of two main parts:
+The heart of Osmium is the Chat component, which consists of three main parts:
 
+- **Message Item**: Renders individual message content with markdown support and copy to clipboard functionality
 - **Message List**: Displays conversation history with proper formatting and styling
-- **Message Input**: Handles user input with support for various input types and submission methods
+- **Message Input**: Handles user input with auto-resize, send/stop functionality
 
 ## Built-in Features
 
 Osmium comes with carefully crafted UI/UX features specifically tailored for AI chat applications:
 
-### **Auto-scroll Management**
+### **Scrolling and Spacing Management**
 
-- **New Message Auto Push Up**: Automatically pushes the user's submitted message up to create space for the incoming AI response, providing a smooth UX similar to ChatGPT and Grok
-- **Smart Scroll-to-Bottom Indicator**: Automatically detects when the last message's bottom edge is not fully visible and displays a "scroll to bottom" icon, allowing users to quickly jump back to the latest messages
-
-### **Chat Functionality**
-
-- Real-time message rendering
-- Support for rich text and markdown content
-- Responsive design that works across devices
-
-### **Polished UI/UX**
-
-- Clean, modern interface designed for conversational flows
-- Smooth animations and transitions
-- Consistent styling that integrates well with existing applications
+- **Auto Message Spacing**: Automatically manages spacing to leave enough room for upcoming messages, ensuring optimal readability and a smooth conversational flow
+- **Auto Scrolling Detection**: Automatically detects whether the user is at the bottom of the conversation and displays a "scroll to bottom" icon when they've scrolled up, enabling quick navigation back to the latest messages

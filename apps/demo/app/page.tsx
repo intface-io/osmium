@@ -1,25 +1,9 @@
 "use client";
 import { useChat } from "@ai-sdk/react";
-import { DefaultChatTransport } from "ai";
 import Chat from "@/components/chat";
 
 export default function Home() {
-  const {
-    messages: chatMessages,
-    sendMessage,
-    status,
-    stop,
-  } = useChat({
-    transport: new DefaultChatTransport({
-      api: "/api/chat",
-    }),
-    onError: () => {
-      // Handle error
-    },
-    onFinish: () => {
-      // Handle finish
-    },
-  });
+  const { messages: chatMessages, sendMessage, status, stop } = useChat();
 
   const handleSend = async (message: string) => {
     sendMessage({ text: message });

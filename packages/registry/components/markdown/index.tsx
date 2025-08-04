@@ -54,11 +54,11 @@ const MemoizedMarkdownBlock = memo(
 
 MemoizedMarkdownBlock.displayName = "MemoizedMarkdownBlock";
 
-const Markdown = memo(({ content, key }: { content: string; key: string }) => {
+const Markdown = memo(({ content }: { content: string }) => {
   const blocks = useMemo(() => parseMarkdownIntoBlocks(content), [content]);
 
   return blocks.map((block, index) => (
-    <MemoizedMarkdownBlock content={block} key={`${key}-block_${index}`} />
+    <MemoizedMarkdownBlock content={block} key={`markdown-block_${index}`} />
   ));
 });
 

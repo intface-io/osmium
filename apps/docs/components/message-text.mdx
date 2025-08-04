@@ -20,7 +20,7 @@ Install the MessageText component using the shadcn CLI:
   yarn shadcn@latest add https://registry.intface.io/message-text.json
   ```
   ```bash bun 
-  bunx shadcn@latest add https://registry.intface.io/message-text.json
+  bunx --bun shadcn@latest add https://registry.intface.io/message-text.json
   ```
 </CodeGroup>
 
@@ -54,12 +54,4 @@ Multiple paragraphs are preserved.
 
 <ParamField body="children" type="string" required>
   The message text content to render. Supports markdown formatting.
-</ParamField>
-
-<ParamField body="className" type="string">
-  Additional CSS classes to apply to the text container.
-</ParamField>
-
-<ParamField body="key" type="any">
-  React key prop for the markdown renderer to force re-rendering when needed.
 </ParamField>

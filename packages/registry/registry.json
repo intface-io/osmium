@@ -12,19 +12,78 @@
         {
           "path": "components/chat/index.tsx",
           "type": "registry:component"
-        },
+        }
+      ],
+      "dependencies": ["@ai-sdk/react@beta", "ai@beta"],
+      "registryDependencies": [
+        "button",
+        "textarea",
+        "https://registry.intface.io/message-item.json",
+        "https://registry.intface.io/message-list.json",
+        "https://registry.intface.io/message-input.json"
+      ]
+    },
+    {
+      "name": "message-text",
+      "type": "registry:block",
+      "title": "Message Text",
+      "description": "A text rendering component for message content with markdown support and proper whitespace handling.",
+      "files": [
         {
-          "path": "components/chat/message-list.tsx",
+          "path": "components/chat/message-text.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "components/chat/message-input.tsx",
-          "type": "registry:component"
-        },
+        }
+      ],
+      "registryDependencies": ["https://registry.intface.io/markdown.json"]
+    },
+    {
+      "name": "message-item",
+      "type": "registry:block",
+      "title": "Message Item",
+      "description": "A message item component for chat messages.",
+      "files": [
         {
           "path": "components/chat/message-item.tsx",
           "type": "registry:component"
-        },
+        }
+      ],
+      "dependencies": ["lucide-react", "@ai-sdk/react@beta"],
+      "registryDependencies": ["https://registry.intface.io/message-text.json"]
+    },
+    {
+      "name": "message-list",
+      "type": "registry:block",
+      "title": "Message List",
+      "description": "A message list component for chat messages.",
+      "files": [
+        {
+          "path": "components/chat/message-list.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["@ai-sdk/react@beta", "lucide-react", "ai@beta"],
+      "registryDependencies": ["https://registry.intface.io/message-item.json"]
+    },
+    {
+      "name": "message-input",
+      "type": "registry:block",
+      "title": "Message Input",
+      "description": "A message input component for chat messages.",
+      "files": [
+        {
+          "path": "components/chat/message-input.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["ai@beta", "lucide-react"],
+      "registryDependencies": ["button", "textarea"]
+    },
+    {
+      "name": "markdown",
+      "type": "registry:block",
+      "title": "Markdown",
+      "description": "A markdown rendering component with proper whitespace handling.",
+      "files": [
         {
           "path": "components/markdown/index.tsx",
           "type": "registry:component"
@@ -85,7 +144,8 @@
           "path": "components/markdown/ul.tsx",
           "type": "registry:component"
         }
-      ]
+      ],
+      "dependencies": ["react-markdown", "marked"]
     }
   ]
 }

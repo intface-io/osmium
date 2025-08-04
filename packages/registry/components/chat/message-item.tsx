@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import Markdown from "../markdown";
+import MessageText from "./message-text";
 import { Check, Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { UIMessage } from "@ai-sdk/react";
@@ -71,13 +71,12 @@ export function MessageItem({
               : "bg-muted max-w-full"
           }`}
         >
-          <Markdown
-            content={message.parts
+          <MessageText>
+            {message.parts
               .filter((part) => part.type === "text")
               .map((part) => part.text)
               .join("")}
-            id={message.id}
-          />
+          </MessageText>
         </div>
       </div>
       <div

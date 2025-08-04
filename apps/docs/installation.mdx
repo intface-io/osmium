@@ -9,35 +9,52 @@ Osmium follows the [shadcn/ui specification](https://ui.shadcn.com/docs/registry
 
 Make sure your project has been set up correctly with shadcn/ui configuration. If you haven't done this yet, follow the [shadcn/ui installation guide](https://ui.shadcn.com/docs/installation) to get started.
 
-Your project should have:
-
-- A `components.json` file in your project root
-- shadcn/ui dependencies installed
-- Proper TypeScript and Tailwind CSS configuration
-
-## Install Osmium Components
+## Install Components
 
 Once your project is configured with shadcn/ui, you can install Osmium components using the shadcn CLI:
 
-```bash
+<CodeGroup>
+```bash pnpm
 pnpm dlx shadcn@latest add https://registry.intface.io/chat.json
 ```
+```bash npm
+npx shadcn@latest add https://registry.intface.io/chat.json
+```
+```bash yarn
+yarn shadcn@latest add https://registry.intface.io/chat.json
+```
+```bash bun
+bunx --bun shadcn@latest add https://registry.intface.io/chat.json
+```
+</CodeGroup>
 
 This will download and install the Chat component along with all its dependencies into your `components` directory.
 
-## Import and Use Components
+## Usage
 
 After installation, you can import and use Osmium components in your application:
 
 <Tabs>
 <Tab title="Code">
 
-```tsx
+```tsx page.tsx
+"use client";
+import { useChat } from "@ai-sdk/react";
 import Chat from "@/components/chat";
 
-export default function App() {
+export default function Home() {
+  const { messages: chatMessages, sendMessage, status, stop } = useChat();
+
+  const handleSend = async (message: string) => {
+    sendMessage({ text: message });
+  };
+
+  const handleStop = () => {
+    stop();
+  };
+
   return (
-    <div className="h-screen">
+    <div className="h-screen flex flex-col items-center justify-center">
       <Chat
         status={status}
         messages={chatMessages}
@@ -54,7 +71,7 @@ export default function App() {
 <Tab title="Preview">
 
 <Frame>
-  <iframe src="http://localhost:3001/" className="w-full h-[500px]" sandbox />
+  <iframe src="https://osmium-demo.vercel.app" className="w-full h-[500px]" sandbox />
 </Frame>
 </Tab>
 </Tabs>
@@ -66,6 +83,7 @@ When you install the Chat component, Osmium will add:
 - **Chat component**: The main chat interface
 - **Message List**: Displays conversation history
 - **Message Input**: Handles user input and submission
+- **Message Item**: Renders individual message content with markdown support
 - **Required dependencies**: All necessary utilities and types
 
 All components are installed as source code in your project, giving you full control to customize and extend them as needed.

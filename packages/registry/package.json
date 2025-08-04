@@ -1,8 +1,9 @@
 {
   "name": "@intface-io/osmium",
+  "author": "Codeus",
   "version": "0.0.1",
   "private": true,
-  "description": "A React library for building AI chat apps.",
+  "description": "A collection of building blocks for AI chat interfaces.",
   "type": "module",
   "scripts": {
     "serve": "wrangler dev",

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "lucide-react";
 
 type AProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLAnchorElement>,
@@ -8,8 +7,7 @@ type AProps = React.DetailedHTMLProps<
 
 const A = ({ children, ...props }: AProps) => {
   return (
-    <a {...props}>
-      <Link className="w-4 h-4" />
+    <a className="underline" target="_blank" {...props}>
       {children}
     </a>
   );

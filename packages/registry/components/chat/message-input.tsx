@@ -66,11 +66,21 @@ export function MessageInput({
         />
         <div className="flex justify-end">
           {status === "submitted" || status === "streaming" ? (
-            <Button size="icon" type="button" onClick={onStop}>
+            <Button
+              size="icon"
+              type="button"
+              onClick={onStop}
+              className="cursor-pointer"
+            >
               <Square className="size-4" fill="#fff" />
             </Button>
           ) : (
-            <Button type="submit" size="icon" disabled={!value?.trim()}>
+            <Button
+              type="submit"
+              size="icon"
+              disabled={!value?.trim()}
+              className="cursor-pointer"
+            >
               <ArrowUp className="size-5" />
             </Button>
           )}
