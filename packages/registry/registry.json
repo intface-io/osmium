@@ -20,7 +20,8 @@
         "textarea",
         "https://registry.intface.io/message-item.json",
         "https://registry.intface.io/message-list.json",
-        "https://registry.intface.io/message-input.json"
+        "https://registry.intface.io/message-input.json",
+        "https://registry.intface.io/thinking-block.json"
       ]
     },
     {
@@ -146,6 +147,22 @@
         }
       ],
       "dependencies": ["react-markdown", "marked"]
+    },
+    {
+      "name": "thinking-block",
+      "type": "registry:block",
+      "title": "Thinking Block",
+      "description": "A block for displaying reasoning content.",
+      "files": [
+        {
+          "path": "components/chat/thinking-block.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "accordion",
+        "https://registry.intface.io/message-text.json"
+      ]
     }
   ]
 }

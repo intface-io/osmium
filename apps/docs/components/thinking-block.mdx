@@ -1,6 +1,69 @@
 ---
 title: "Thinking Block"
-description: "A component that displays the reasoning process of an AI."
+description: "A collapsible component that displays the reasoning process of AI Models with auto-scrolling and expandable content."
 ---
 
-WIP.
+The ThinkingBlock component provides a visual representation of AI Models' reasoning process during message generation. It features a collapsible accordion interface, auto-scrolling for real-time content updates, and clear state indicators for active thinking vs completed thoughts.
+
+## Installation
+
+Install the ThinkingBlock component using the shadcn CLI:
+
+<CodeGroup>
+  ```bash pnpm 
+  pnpm dlx shadcn@latest add https://registry.intface.io/thinking-block.json
+  ```
+  ```bash npm 
+  npx shadcn@latest add https://registry.intface.io/thinking-block.json
+  ```
+  ```bash yarn 
+  yarn shadcn@latest add https://registry.intface.io/thinking-block.json
+  ```
+  ```bash bun 
+  bunx --bun shadcn@latest add https://registry.intface.io/thinking-block.json
+  ```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import ThinkingBlock from "@/components/chat/thinking-block";
+
+export default function ChatMessage() {
+  const message = {
+    id: "1",
+    role: "assistant",
+    parts: [
+      {
+        type: "reasoning",
+        text: "Let me think about this problem step by step..."
+      },
+      {
+        type: "text", 
+        text: "Here's my response based on my reasoning."
+      }
+    ]
+  };
+
+  const isThinkingDone = true;
+
+  return (
+    <div className="chat-message">
+      <ThinkingBlock 
+        message={message}
+        isThinkingDone={isThinkingDone}
+      />
+    </div>
+  );
+}
+```
+
+## Props
+
+<ParamField body="message" type="UIMessage" required>
+  The message object containing reasoning parts. The component extracts and displays text from parts with type "reasoning".
+</ParamField>
+
+<ParamField body="isThinkingDone" type="boolean" required>
+  Controls the accordion trigger text and state. Shows "Thinking" when false (active) and "Thoughts" when true (completed).
+</ParamField>

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import MessageText from "./message-text";
+import ThinkingBlock from "./thinking-block";
 import { Check, Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { UIMessage } from "@ai-sdk/react";
@@ -58,51 +59,68 @@ export function MessageItem({
       }
       style={style}
     >
-      <div
-        className={`flex ${
-          message.role === "user" ? "justify-end" : "justify-start"
-        }`}
-      >
-        <div
-          ref={messageRef}
-          className={`rounded-lg p-4 whitespace-pre-wrap flex flex-col relative ${
-            message.role === "user"
-              ? "bg-primary text-primary-foreground max-w-[80%]"
-              : "bg-muted max-w-full"
-          }`}
-        >
-          <MessageText>
-            {message.parts
-              .filter((part) => part.type === "text")
-              .map((part) => part.text)
-              .join("")}
-          </MessageText>
-        </div>
+      <div className={cn("px-2", { hidden: message.role === "user" })}>
+        <ThinkingBlock
+          message={message}
+          isThinkingDone={message.parts
+            .filter((part) => part.type === "text")
+            .some((part) => part.text)}
+        />
       </div>
       <div
-        className={cn(
-          "flex mt-1 gap-2",
-          message.role === "user" ? "justify-end pr-2" : "justify-start pl-2",
-          showCopy || copied ? "opacity-100" : "opacity-0",
-          "transition-opacity duration-200"
-        )}
+        className={cn({
+          hidden: message.parts
+            .filter((part) => part.type === "text")
+            .every((part) => !part.text),
+        })}
       >
-        <button
-          onClick={handleCopy}
-          className="text-xs text-muted-foreground hover:bg-gray-100 p-1 rounded-sm flex items-center gap-1"
-        >
-          {copied ? (
-            <>
-              <Check className="h-3 w-3" />
-              <span className="text-xs">Copied</span>
-            </>
-          ) : (
-            <>
-              <Copy className="h-3 w-3" />
-              <span className="text-xs">Copy</span>
-            </>
+        <div
+          className={cn(
+            "flex",
+            message.role === "user" ? "justify-end" : "justify-start"
           )}
-        </button>
+        >
+          <div
+            ref={messageRef}
+            className={`rounded-lg p-4 whitespace-pre-wrap flex flex-col relative ${
+              message.role === "user"
+                ? "bg-primary text-primary-foreground max-w-[80%]"
+                : "bg-muted max-w-full"
+            }`}
+          >
+            <MessageText>
+              {message.parts
+                .filter((part) => part.type === "text")
+                .map((part) => part.text)
+                .join("")}
+            </MessageText>
+          </div>
+        </div>
+        <div
+          className={cn(
+            "flex mt-1 gap-2",
+            message.role === "user" ? "justify-end pr-2" : "justify-start pl-2",
+            showCopy || copied ? "opacity-100" : "opacity-0",
+            "transition-opacity duration-200"
+          )}
+        >
+          <button
+            onClick={handleCopy}
+            className="text-xs text-muted-foreground hover:bg-gray-100 p-1 rounded-sm flex items-center gap-1"
+          >
+            {copied ? (
+              <>
+                <Check className="h-3 w-3" />
+                <span className="text-xs">Copied</span>
+              </>
+            ) : (
+              <>
+                <Copy className="h-3 w-3" />
+                <span className="text-xs">Copy</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
     </div>
   );

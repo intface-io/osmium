@@ -11,9 +11,11 @@ export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json();
 
   const result = streamText({
-    model: openrouter("moonshotai/kimi-k2"),
+    model: openrouter("deepseek/deepseek-r1:free"),
     messages: convertToModelMessages(messages),
   });
 
-  return result.toUIMessageStreamResponse();
+  return result.toUIMessageStreamResponse({
+    sendReasoning: true,
+  });
 }

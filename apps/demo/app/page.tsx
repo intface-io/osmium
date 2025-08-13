@@ -1,6 +1,7 @@
 "use client";
 import { useChat } from "@ai-sdk/react";
 import Chat from "@/components/chat";
+import { useEffect } from "react";
 
 export default function Home() {
   const { messages: chatMessages, sendMessage, status, stop } = useChat();
@@ -12,6 +13,10 @@ export default function Home() {
   const handleStop = () => {
     stop();
   };
+
+  useEffect(() => {
+    console.log(chatMessages);
+  }, [chatMessages]);
 
   return (
     <div className="h-screen flex flex-col items-center justify-center">
